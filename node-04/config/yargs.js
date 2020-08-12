@@ -19,9 +19,18 @@ const optsActualizar = {
   }
 }
 
+const optsBorrar = {
+  descripcion: {
+    demand: true,
+    alias: 'd',
+    desc: 'Tarea por borrar'
+  }
+}
+
 const argv = require('yargs')
               .command('crear','Crear un elemento por hacer', optsCrear)
               .command('actualizar','Actualiza elestado de una tarea', optsActualizar)
+              .command('borrar','Tarea borrada', optsActualizar)
               .help()
               .argv
 
