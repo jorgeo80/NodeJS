@@ -1,18 +1,22 @@
 const express = require('express')
 const app = express()
+const hbs =require('hbs')
 
 app.use(express.static(__dirname + '/public'))
+
+hbs.registerPartials(__dirname + '/views/partials')
 
 app.set('view engine', 'hbs')
 
 app.get('/', function (req, res) {
-//   let salida = {
-//     nombre: 'karen',
-//     edad: 99,
-//     url: req.url
-//   }
   res.render('home',{
     name: 'Jorgeo80',
+    year: new Date().getFullYear()
+  })
+})
+
+app.get('/about', function (req, res) {
+  res.render('about',{
     year: new Date().getFullYear()
   })
 })
